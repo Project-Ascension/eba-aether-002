@@ -9123,7 +9123,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 0}
   SpawnFXPrefabs: []
-  helpbox: 133
+  helpbox: 177
 --- !u!1 &1784371199
 GameObject:
   m_ObjectHideFlags: 0
