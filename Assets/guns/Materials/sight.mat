@@ -30,6 +30,10 @@ Material:
     m_Floats:
       data:
         first:
+          name: _InvFade
+        second: .59732157
+      data:
+        first:
           name: _EmissivePower
         second: .5
       data:
@@ -40,16 +44,12 @@ Material:
         first:
           name: _ScrollSpeed_Y
         second: 0
-      data:
-        first:
-          name: _InvFade
-        second: .59732157
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .514705896, g: .514705896, b: .514705896, a: 1}
+        second: {r: .426470578, g: .426470578, b: .426470578, a: 0}
       data:
         first:
           name: _TintColor
-        second: {r: .5, g: .5, b: .5, a: 1}
+        second: {r: .551470578, g: .551470578, b: .551470578, a: 0}

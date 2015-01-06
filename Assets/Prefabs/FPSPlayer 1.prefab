@@ -773,47 +773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c068c886d24479f4d943347cafd89b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Persist: 0
-  States:
-  - TypeName: 76705f46505353686f6f746572
-    Name: 5a6f6f6d
-    TextAsset: {fileID: 4900000, guid: 52e350400ef1a9246ae1c050612ff3b5, type: 3}
-    Enabled: 0
-    Allowed: 1
-  - TypeName: 76705f46505353686f6f746572
-    Name: 44656661756c74
-    TextAsset: {fileID: 0}
-    Enabled: 1
-    Allowed: 0
-  ProjectilePrefab: {fileID: 100000, guid: 8e0eede1a84a3d44a859ca0304834df5, type: 2}
-  ProjectileScale: .600000024
-  ProjectileFiringRate: .100000001
-  ProjectileCount: 1
-  ProjectileSpread: 4
-  MotionPositionRecoil: {x: 0, y: 0, z: -.075000003}
-  MotionRotationRecoil: {x: -.5, y: 0, z: 0}
-  MotionPositionReset: .5
-  MotionRotationReset: .5
-  MotionPositionPause: .5
-  MotionRotationPause: .5
-  MotionDryFireRecoil: -.075000003
-  MuzzleFlashPosition: {x: .067608498, y: -.0300597996, z: 1.35659397}
-  MuzzleFlashScale: {x: .400000006, y: .400000006, z: .400000006}
-  MuzzleFlashFadeSpeed: .180027798
-  MuzzleFlashPrefab: {fileID: 100000, guid: f8c6c34daab563340b2a75bc4a7ecbd2, type: 2}
-  ShellPrefab: {fileID: 100000, guid: b6c4610c790d2de47994172315899429, type: 2}
-  ShellScale: .0500000007
-  ShellEjectDirection: {x: 1, y: 1, z: .5}
-  ShellEjectPosition: {x: .150000006, y: 0, z: .5}
-  ShellEjectVelocity: .25
-  ShellEjectDelay: 0
-  ShellEjectSpin: .5
-  SoundFire: {fileID: 8300000, guid: 5afc1e4e7999b844abd6b398674426bf, type: 3}
-  SoundDryFire: {fileID: 8300000, guid: 17a20244025722c4387359c88bd319a1, type: 3}
-  SoundReload: {fileID: 8300000, guid: 4e06e9d7cb985264fbd988f16ae47efc, type: 3}
-  SoundFirePitch: {x: 1, y: 1}
-  AmmoMaxCount: 50
-  AmmoReloadTime: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,47 +875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c068c886d24479f4d943347cafd89b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Persist: 0
-  States:
-  - TypeName: 76705f46505353686f6f746572
-    Name: 5a6f6f6d
-    TextAsset: {fileID: 4900000, guid: 0b0d44f482a71e442b3cffbfc7dc7616, type: 3}
-    Enabled: 0
-    Allowed: 1
-  - TypeName: 76705f46505353686f6f746572
-    Name: 44656661756c74
-    TextAsset: {fileID: 0}
-    Enabled: 1
-    Allowed: 0
-  ProjectilePrefab: {fileID: 100000, guid: a015ca9d6a1aeb148941bb3544885cc1, type: 2}
-  ProjectileScale: .400000006
-  ProjectileFiringRate: .400000006
-  ProjectileCount: 1
-  ProjectileSpread: 1
-  MotionPositionRecoil: {x: 0, y: 0, z: -.0350000001}
-  MotionRotationRecoil: {x: -10, y: 0, z: 0}
-  MotionPositionReset: .5
-  MotionRotationReset: .5
-  MotionPositionPause: 0
-  MotionRotationPause: 1
-  MotionDryFireRecoil: -.419999987
-  MuzzleFlashPosition: {x: .115268297, y: -.0760660022, z: .902065098}
-  MuzzleFlashScale: {x: .349999994, y: .349999994, z: 1}
-  MuzzleFlashFadeSpeed: .075000003
-  MuzzleFlashPrefab: {fileID: 100000, guid: d50f94443b478a74dbdaf688907d184a, type: 2}
-  ShellPrefab: {fileID: 100000, guid: 0645d85cd7b7e334299539b03d28395a, type: 2}
-  ShellScale: .0500000007
-  ShellEjectDirection: {x: 2, y: 1, z: 1}
-  ShellEjectPosition: {x: .200000003, y: -.0500000007, z: .5}
-  ShellEjectVelocity: .200000003
-  ShellEjectDelay: 0
-  ShellEjectSpin: 1
-  SoundFire: {fileID: 8300000, guid: c32822916b4505846bea6008e361bc5d, type: 3}
-  SoundDryFire: {fileID: 8300000, guid: 17a20244025722c4387359c88bd319a1, type: 3}
-  SoundReload: {fileID: 8300000, guid: b1c95453033c9f040b2fd982c436e4fe, type: 3}
-  SoundFirePitch: {x: 1, y: 1}
-  AmmoMaxCount: 20
-  AmmoReloadTime: 1.5
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1059,47 +977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c068c886d24479f4d943347cafd89b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Persist: 0
-  States:
-  - TypeName: 76705f46505353686f6f746572
-    Name: 5a6f6f6d
-    TextAsset: {fileID: 4900000, guid: 8228b6d3a7daea847bb74862b2ff14f6, type: 3}
-    Enabled: 0
-    Allowed: 1
-  - TypeName: 76705f46505353686f6f746572
-    Name: 44656661756c74
-    TextAsset: {fileID: 0}
-    Enabled: 1
-    Allowed: 0
-  ProjectilePrefab: {fileID: 100000, guid: b468e2c06761eff4db6862aa008a26fa, type: 2}
-  ProjectileScale: 1
-  ProjectileFiringRate: .5
-  ProjectileCount: 1
-  ProjectileSpread: 2
-  MotionPositionRecoil: {x: 0, y: 0, z: -.0250000004}
-  MotionRotationRecoil: {x: -2, y: 0, z: 0}
-  MotionPositionReset: 0
-  MotionRotationReset: 0
-  MotionPositionPause: 0
-  MotionRotationPause: 1
-  MotionDryFireRecoil: -.100000001
-  MuzzleFlashPosition: {x: .0614162013, y: -.0256990008, z: 1.36461103}
-  MuzzleFlashScale: {x: .5, y: .5, z: .5}
-  MuzzleFlashFadeSpeed: .075000003
-  MuzzleFlashPrefab: {fileID: 100000, guid: d50f94443b478a74dbdaf688907d184a, type: 2}
-  ShellPrefab: {fileID: 0}
-  ShellScale: 1
-  ShellEjectDirection: {x: 1, y: 1, z: 1}
-  ShellEjectPosition: {x: 1, y: 0, z: 1}
-  ShellEjectVelocity: .5
-  ShellEjectDelay: 0
-  ShellEjectSpin: 0
-  SoundFire: {fileID: 8300000, guid: efa0084e30ddd4f2da74f19f7f54b63e, type: 3}
-  SoundDryFire: {fileID: 8300000, guid: 17a20244025722c4387359c88bd319a1, type: 3}
-  SoundReload: {fileID: 8300000, guid: 03605c826951a3742a2f7c57d36957e8, type: 3}
-  SoundFirePitch: {x: 1, y: 1}
-  AmmoMaxCount: 6
-  AmmoReloadTime: 3
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1216,9 +1093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1a04d26b8be2041908332414021ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
-  Controller: {fileID: 0}
-  m_Health: 10
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1

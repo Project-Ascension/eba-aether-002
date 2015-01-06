@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.4756346, y: 13.6444206, z: -40.2958946}
+  m_LocalPosition: {x: -12.4756346, y: 13.6444206, z: -23.0042648}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0101
+        actionIsOpen: 0001
         actionStartIndex: 0000000003000000
         actionHashCodes: c54a778fe319600b
         unityObjectParams: []
@@ -160,7 +160,7 @@ MonoBehaviour:
           value: Untagged
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 000000000000000000000000010000000000000000000000000100000000010000a040000000a04100010000000200000000
+        byteData: 0000000000000000000000000100000000000000000000000001000000000100000000000000f04100010000000200000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -233,7 +233,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 000040400046494e49534845440100000000000000000000000001706f730000000001000000000100000000010000000001
+        byteData: 000040400046494e49534845440000000000000000000000000001706f730000000001000000000100000000010000000001
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -291,9 +291,9 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {fileID: 100000, guid: e738c4ebcde78684ca2ac1f2fe53859d, type: 2}
+          value: {fileID: 100000, guid: 14821a40ced952b458979a69fd08fd9c, type: 2}
         - useVariable: 1
-          name: self
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0

@@ -154,6 +154,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 95: {fileID: 9500000}
   - 136: {fileID: 13600000}
+  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: Bot_01
   m_TagString: Untagged
@@ -397,8 +398,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 155
-        y: 260
+        x: 59
+        y: 164
         width: 113
         height: 32
       isBreakpoint: 0
@@ -526,8 +527,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 483
-        y: 215.96875
+        x: 331.789062
+        y: 109.78125
         width: 100
         height: 48
       isBreakpoint: 0
@@ -603,8 +604,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 914
-        y: 321
+        x: 818
+        y: 225
         width: 100
         height: 32
       isBreakpoint: 0
@@ -682,8 +683,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 694
-        y: 432
+        x: 598
+        y: 336
         width: 119
         height: 32
       isBreakpoint: 0
@@ -1854,20 +1855,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
-  DeathSpawnObjects: []
+  DeathSpawnObjects:
+  - {fileID: 100018, guid: 7957ebb5ffcb6604a8036e97b3c4369f, type: 2}
   MinDeathDelay: 0
   MaxDeathDelay: 0
   CurrentHealth: 0
   DeathSound: {fileID: 0}
   ImpactDamageThreshold: 10
   ImpactDamageMultiplier: 0
-  Respawns: 1
-  MinRespawnTime: 3
-  MaxRespawnTime: 8
-  RespawnCheckRadius: .5
-  RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
+  Respawns: 0
+  MinRespawnTime: -99999
+  MaxRespawnTime: -99999
+  RespawnCheckRadius: -99999
+  RespawnSound: {fileID: 0}
   DeathEffect: {fileID: 100000, guid: 40b73606d45c7e0408551e587b60fae4, type: 2}
   helpbox: 84
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29bf09a14bfd0c849a72b3a3bbb0a47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnMode: 0
+  SpawnPointTag: 
+  m_ObstructionSolver: 0
+  ObstructionRadius: .5
+  MinRespawnTime: 3
+  MaxRespawnTime: 8
+  SpawnOnAwake: 0
+  SpawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
+  SpawnFXPrefabs: []
+  helpbox: 133
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

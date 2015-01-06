@@ -10,6 +10,12 @@ TagManager:
   - 
   - Ground
   - 
+  - NoPlayerCollision
+  - 
+  - Wood
+  - Blue
+  - Red
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -31,7 +37,7 @@ TagManager:
   User Layer 18: 
   User Layer 19: 
   User Layer 20: 
-  User Layer 21: 
+  User Layer 21: Don'tCollidePlayer
   User Layer 22: Ragdoll
   User Layer 23: PlayerDamageCollider
   User Layer 24: IgnoreBullets
