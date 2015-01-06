@@ -32,7 +32,7 @@ public class SpawnPoint : MonoBehaviour {
 	
 	}
 
-	public void SpawnMob (Rigidbody mob) {
-		Rigidbody mobClone = (Rigidbody) Instantiate(mob, transform.position, transform.rotation);
+	public void SpawnMob (GenericMob mob) {
+		GenericMob mobClone = (GenericMob) Instantiate(mob, transform.position, transform.rotation);
 	}
 }

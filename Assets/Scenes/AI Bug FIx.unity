@@ -3215,7 +3215,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: wave.Array.data[0].Prefab
       value: 
-      objectReference: {fileID: 5400000, guid: f4a335b0d4b45465e9e1eb6dc3bf696c, type: 2}
+      objectReference: {fileID: 11400008, guid: f4a335b0d4b45465e9e1eb6dc3bf696c,
+        type: 2}
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: wave.Array.data[0].count
       value: 10
@@ -3346,7 +3347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave:
-  - Prefab: {fileID: 5400000, guid: f4a335b0d4b45465e9e1eb6dc3bf696c, type: 2}
+  - Prefab: {fileID: 11400008, guid: f4a335b0d4b45465e9e1eb6dc3bf696c, type: 2}
     count: 10
   Max_Mobs: 2
 --- !u!4 &1431364078

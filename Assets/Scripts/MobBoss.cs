@@ -12,13 +12,13 @@ public class MobBoss : MonoBehaviour {
 	// Slot for prefabs to spawn
 	public List<MobWave> wave = new List<MobWave>();
 	MobWave currentWave;
-	Rigidbody currentMob;
+	GenericMob currentMob;
 
 	public int Max_Mobs;
 
 	[Serializable]
 	public struct MobWave {
-		public Rigidbody Prefab;
+		public GenericMob Prefab;
 		public int count;
 	}
 
