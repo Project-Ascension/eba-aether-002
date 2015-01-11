@@ -7365,25 +7365,6 @@ Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1759742486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2c8a92e1429a24ea763ec42ec37a89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SpawnMode: 0
-  SpawnPointTag: 
-  m_ObstructionSolver: 0
-  ObstructionRadius: 1
-  MinRespawnTime: 3
-  MaxRespawnTime: 3
-  SpawnOnAwake: 0
-  SpawnSound: {fileID: 0}
-  SpawnFXPrefabs: []
-  helpbox: 177
---- !u!1 &1784371199
-=======
   m_GameObject: {fileID: 1676291691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -38.7988815, y: 1.43814278, z: -11.3254623}
@@ -7392,7 +7373,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!1 &1702370303
->>>>>>> origin/Ethan
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100010, guid: 48429cc6be8444302b86015a25a3a231, type: 2}
