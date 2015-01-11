@@ -178,7 +178,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400016}
   m_Layer: 0
-  m_Name: Buzzard_150105
+  m_Name: MOB_Buzzard_150105
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   RespawnCheckRadius: -99999
   RespawnSound: {fileID: 0}
   DeathEffect: {fileID: 100000, guid: 40b73606d45c7e0408551e587b60fae4, type: 2}
-  helpbox: 95
+  helpbox: 84
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

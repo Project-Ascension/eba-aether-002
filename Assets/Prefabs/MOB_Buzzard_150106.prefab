@@ -41,7 +41,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Buzzard_150106
+  m_Name: MOB_Buzzard_150106
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,6 +496,8 @@ MonoBehaviour:
   MaxHealth: 4
   DeathSpawnObjects:
   - {fileID: 100018, guid: 7957ebb5ffcb6604a8036e97b3c4369f, type: 2}
+  - {fileID: 100004, guid: da76bd3c99d50405485d8669f14bf694, type: 2}
+  - {fileID: 100000, guid: d306f33b4275e4d88888bc08c00cd137, type: 2}
   MinDeathDelay: 0
   MaxDeathDelay: 0
   CurrentHealth: 0
@@ -508,7 +510,7 @@ MonoBehaviour:
   RespawnCheckRadius: -99999
   RespawnSound: {fileID: 0}
   DeathEffect: {fileID: 0}
-  helpbox: 95
+  helpbox: 84
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1488,7 +1490,7 @@ MonoBehaviour:
           value: MainCamera
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0000000000000000000000000100000000000000000000000001000001000000803feceb6b3f8180803c0000803f00010000000000000000000000000100000000000000000000803f0001000000000020420048697420536f6d657468696e6721000100000000000000000000000001000000000000000000000000010000000001010000000000000000803feceb6b3f8180803c0000803f000100
+        byteData: 0000000000000000000000000100000000000000000000000001000001000000803feceb6b3f8180803c0000803f00010000000000000000000000000100000000000000000000803f0001000000000070420048697420536f6d657468696e6721000100000000000000000000000001000000000000000000000000010000000001010000000000000000803feceb6b3f8180803c0000803f000100
         arrayParamSizes: 00000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmInt
@@ -1837,8 +1839,8 @@ SkinnedMeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 9c1619e800ddb448583bf29cd46250e6, type: 2}
-  - {fileID: 2100000, guid: f79bc4fa98bcc4ee98a0d2a1f158c7ac, type: 2}
+  - {fileID: 2100000, guid: eb3fbdabd2af14ca9a702adb1320021e, type: 2}
+  - {fileID: 2100000, guid: eb3fbdabd2af14ca9a702adb1320021e, type: 2}
   - {fileID: 2100000, guid: 0f3dd9d498d5f449a894bc2004fef258, type: 2}
   - {fileID: 2100000, guid: 675229425a28f40c29409e477d52f405, type: 2}
   m_SubsetIndices: 
