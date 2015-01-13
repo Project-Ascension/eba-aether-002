@@ -1,0 +1,199 @@
+﻿using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+public class MobBoss : MonoBehaviour 
+{
+
+	// Stores all SpawnPoints and GenericMobs
+	List<SpawnPoint> m_spawnPointList = new List<SpawnPoint>();
+	List<GenericMob> m_currentMobList = new List<GenericMob>();
+	SpawnPoint m_currentSpawn;
+	Stack<WavePlatoon> currentSpawnPointPlatoonsStack = new Stack<WavePlatoon>();
+	// Slot for prefabs to spawn
+	public List<MobWave> m_waveList = new List<MobWave>();
+	MobWave m_currentWave;
+	GenericMob m_currentMob;
+
+//	public int m_maxMobs;
+
+	[Serializable]
+	public struct MobWave 
+	{
+		public List<WavePlatoon> platoonList;
+	}
+
+	[Serializable]
+	public struct WavePlatoon 
+	{
+		public GenericMob Prefab;
+		public int platoonPrefabCount;
+		[HideInInspector]
+		public SpawnPoint platoonSpawnPoint;
+		[HideInInspector]
+		public int spawnOrder;
+	}
+
+	enum StateFSM
+	{
+		Idle,
+		Waiting,
+		SpawningSetup,
+		Spawning
+	}
+
+	StateFSM state;
+
+	// Use this for initialization
+	void Start () 
+	{
+		state = StateFSM.SpawningSetup;
+
+		m_currentWave = m_waveList[0];
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+//		if (m_currentMobList.Count < Max_Mobs && currentWave.count > 0) 
+//		{
+//			// Choose a random spawn point and store it in currentSpawn
+//			int r = UnityEngine.Random.Range(0, m_spawnPointList.Count);
+//			currentSpawn = m_spawnPointList[r];
+//			// Get the current mob prefab
+//			currentMob = currentWave.unitList[0].Prefab;
+//			// Spawn currentMob at current spawn point
+//			currentSpawn.GetComponent<SpawnPoint>().SpawnMob(currentMob);
+//			currentWave.count -= 1;
+//		}
+
+		switch (state)
+		{
+		case StateFSM.Idle:
+			// Check if all current mobs are destroyed. If so, change state 
+			// to SpawnSetup.
+			if (m_currentMobList.Count < 1)
+			{
+				state = StateFSM.SpawningSetup;
+			}
+			break;
+		case StateFSM.SpawningSetup:
+			// Give each platoon a spawn point.
+			for (int i = 0; i < m_currentWave.platoonList.Count; i++)
+			{
+				WavePlatoon currentPlatoon = m_currentWave.platoonList[i];
+				currentPlatoon.platoonSpawnPoint = GetRandomSpawnPoint();
+				m_currentWave.platoonList[i] = currentPlatoon;
+			}
+			// Change state to Spawning
+			state = StateFSM.Spawning;
+			break;
+		case StateFSM.Spawning:
+			bool spawnsDone = true;
+			// Loop through each spawn point.
+			for (int i = 0; i < m_spawnPointList.Count; i++)
+			{
+				// Get the current spawn point
+				SpawnPoint currentSpawnPoint = m_spawnPointList[i];
+				// If a platoon still has prefabs that need to spawn there, 
+				currentSpawnPointPlatoonsStack = GetUnspawnedPlatoonStack(currentSpawnPoint);
+				if (currentSpawnPointPlatoonsStack.Count > 0)
+				{
+					spawnsDone = false;
+					// check to see if the spawn point is clear: 
+					// if so, spawn the next prefab there; if not, do nothing.
+					WavePlatoon currentPlatoon = currentSpawnPointPlatoonsStack.Peek();
+					bool spawnResult = currentSpawnPoint.GetComponent<SpawnPoint>().SpawnMob(currentPlatoon.Prefab);
+
+					if (spawnResult)
+					{
+						Debug.Log(currentPlatoon.platoonPrefabCount);
+						currentPlatoon.platoonPrefabCount = currentPlatoon.platoonPrefabCount - 1;
+
+						if (currentPlatoon.platoonPrefabCount < 1)
+						{
+							Debug.Log(currentSpawnPointPlatoonsStack.Count);
+							currentSpawnPointPlatoonsStack.Pop();
+							Debug.Log(currentSpawnPointPlatoonsStack.Count);
+						}
+					}
+				}
+				// If a spawn point has no more platoons to spawn, do nothing.
+			}
+			// If all spawn points have spawned all their platoons, change
+			// state to Idle.
+			if (spawnsDone)
+			{
+				state = StateFSM.Idle;
+			}
+			break;
+		}
+	}
+
+	public void RegisterSpawnPoint (SpawnPoint sp) 
+	{
+		// Adds all spawn points to List m_spawnPointList
+		m_spawnPointList.Add(sp);
+	}
+
+	public void DeRegisterSpawnPoint (SpawnPoint Space) 
+	{
+
+	}
+
+	public void RegisterMob (GenericMob mob) 
+	{
+		// Adds all mobs to List m_currentMobList
+		m_currentMobList.Add(mob);
+	}
+
+	public void DeRegisterMob (GenericMob mob) 
+	{
+		// Removes mob from List m_currentMobList
+		m_currentMobList.Remove(mob);
+	}
+
+	public int GetUnspawnedPlatoonCount (SpawnPoint sp)
+	{
+		// Initialize variable to return
+		int unspawnedPlatoonCount = 0;
+
+		// Loop through all platoons
+		for (int i = 0; i < m_currentWave.platoonList.Count; i++)
+		{
+			WavePlatoon currentPlatoon = m_currentWave.platoonList[i];
+			// If platoon's platoonSpawnPoint is the same as sp,
+			// add 1 to unspawnedPlatoonCount
+			if (currentPlatoon.platoonSpawnPoint == sp)
+			{
+				unspawnedPlatoonCount++;
+			}
+		}
+		// Return unspawnedPlatoonCount
+		return unspawnedPlatoonCount;
+	}
+
+	public Stack<WavePlatoon> GetUnspawnedPlatoonStack (SpawnPoint sp)
+	{
+		// Initialize List to return
+		Stack<WavePlatoon> platoonList = new Stack<WavePlatoon>();
+
+		// Loop through all platoons
+		for (int i = 0; i < m_currentWave.platoonList.Count; i++)
+		{
+			WavePlatoon currentPlatoon = m_currentWave.platoonList[i];
+			// If platoon's platoonSpawnPoint is the same as sp,
+			// add the platoon to platoonList
+			platoonList.Push(currentPlatoon);
+		}
+
+		return platoonList;
+	}
+
+	public SpawnPoint GetRandomSpawnPoint ()
+	{
+		int r = UnityEngine.Random.Range(0, m_spawnPointList.Count);
+		return m_spawnPointList[r];
+	}
+}

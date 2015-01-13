@@ -16,7 +16,7 @@ public class eba_damageHandler : vp_DamageHandler {
 
 		if (!_thisMob)
 		{
-			Debug.LogError("No GenericMob Script on GameObject");
+			Debug.LogError("No GenericMob Script on MobBoss");
 		}
 	}
 	
