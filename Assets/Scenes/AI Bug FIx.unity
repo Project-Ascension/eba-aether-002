@@ -3190,7 +3190,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: wave.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: WaveList.Array.size
