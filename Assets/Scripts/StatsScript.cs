@@ -2,22 +2,23 @@
 using System.Collections;
 
 public class StatsScript : MonoBehaviour {
+	
+	protected int m_killCount;
+	protected int m_deathCount;
+	protected int m_playerHealth;
 
-	[HideInInspector]
-	public int m_killCount;
-	[HideInInspector]
-	public int _playerHealth;
-
+	public Font m_scoreFont = null;
 	public int m_scoreXOffset = 0;
 	public int m_scoreYOffset = 0;
-	public int m_scoreHeight = 100;
+//	public int m_scoreHeight = 100;
+	public float m_scoreHeight { get { return ((ScoreStyle.CalcSize(new GUIContent(statsString)).y)); } }
 	protected float m_scoreWidth { get { return ((ScoreStyle.CalcSize(new GUIContent(statsString)).x)); } }
 //	public int m_scoreWidth = 100;
 	public Color m_scoreRectColor = new Color(0, 0, 0, 0.5f);
 
 	public Texture Background = null;
 
-	protected Rect m_scoreRectangle { get { return new Rect(m_scoreXOffset, m_scoreYOffset, 80 + m_scoreWidth, m_scoreHeight); } }
+	protected Rect m_scoreRectangle { get { return new Rect(m_scoreXOffset, m_scoreYOffset, 40 + m_scoreWidth, 20 + m_scoreHeight); } }
 
 	protected GUIStyle m_ScoreStyle = null;
 	public GUIStyle ScoreStyle
@@ -27,8 +28,8 @@ public class StatsScript : MonoBehaviour {
 			if (m_ScoreStyle == null)
 			{
 				m_ScoreStyle = new GUIStyle("Label");
-//				m_ScoreStyle.font = BigFont;
-				m_ScoreStyle.alignment = TextAnchor.MiddleCenter;
+				m_ScoreStyle.font = m_scoreFont;
+				m_ScoreStyle.alignment = TextAnchor.MiddleLeft;
 				m_ScoreStyle.fontSize = 28;
 				m_ScoreStyle.wordWrap = false;
 			}
@@ -39,7 +40,7 @@ public class StatsScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		m_killCount = 0;
-		_playerHealth = 100;
+		m_playerHealth = 100;
 	}
 	
 	// Update is called once per frame
@@ -52,8 +53,14 @@ public class StatsScript : MonoBehaviour {
 		Debug.Log("Kill Count = " + m_killCount);
 	}
 
+	public void AddDeath()
+	{
+		m_deathCount += 1;
+		Debug.Log("Death Count = " + m_deathCount);
+	}
+
 	public void TakeDamage(int damage) {
-		_playerHealth -= damage;
+		m_playerHealth -= damage;
 	}
 
 	void OnGUI () {
@@ -70,7 +77,10 @@ public class StatsScript : MonoBehaviour {
 	{
 		get
 		{
-			return "Kill Count: " + m_killCount;
+			string sString = "Kills: " + m_killCount + "\n"
+				+ "Deaths: " + m_deathCount;
+
+			return sString;
 		}
 	}
 }

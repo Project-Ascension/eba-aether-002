@@ -3,18 +3,18 @@ using System.Collections;
 
 public class eba_damageHandler : vp_DamageHandler {
 
-	private StatsScript _statsScript;
-	private MobBoss _mobBoss;
-	private GenericMob _thisMob;
+	private StatsScript m_statsScript;
+	private MobBoss m_mobBoss;
+	private GenericMob m_thisMob;
 	protected vp_Timer.Handle m_DestroyTimer = new vp_Timer.Handle();
 
 	// Use this for initialization
 	void Start () {
-		_statsScript = GameObject.Find("StatsBot").GetComponent<StatsScript>();
-		_mobBoss = GameObject.Find("MobBoss").GetComponent<MobBoss>();
-		_thisMob = gameObject.GetComponent<GenericMob>();
+		m_statsScript = GameObject.Find("StatsBot").GetComponent<StatsScript>();
+		m_mobBoss = GameObject.Find("MobBoss").GetComponent<MobBoss>();
+		m_thisMob = gameObject.GetComponent<GenericMob>();
 
-		if (!_thisMob)
+		if (!m_thisMob)
 		{
 			Debug.LogError("No GenericMob Script on MobBoss");
 		}
@@ -28,11 +28,11 @@ public class eba_damageHandler : vp_DamageHandler {
 	// Overrides the Die() function from vp_DamageHandler
 	public virtual void Die()
 	{
-		_statsScript.AddKill();
+		m_statsScript.AddKill();
 
 		base.Die();
 
-		_mobBoss.DeRegisterMob(_thisMob);
+		m_mobBoss.DeRegisterMob(m_thisMob);
 
 //		Destroy(gameObject);
 	}
