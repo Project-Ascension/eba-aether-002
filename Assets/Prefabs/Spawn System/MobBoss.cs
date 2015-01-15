@@ -14,6 +14,7 @@ public class MobBoss : MonoBehaviour {
 	public class Wave
 	{
 		public List<Platoon> PlatoonList;
+		public float WarmUp = 0f;
 	}
 	// Creating a struct for platoons
 	[Serializable]
@@ -40,17 +41,21 @@ public class MobBoss : MonoBehaviour {
 	private List<GenericMob> m_registeredMobs = new List<GenericMob>();
 	// Creating a Wave to store the current wave
 	private Wave m_activeWave;
+	// Creating a variable to store the current wave's warm up time in seconds
+	private float m_warmUpTimer;
 	// Creating an enum to easily store the state
-	enum StateFSM 
+	[HideInInspector]
+	public enum StateFSM 
 	{
 		Idle,
 		LastWaveIdle,
+		WarmingUp,
 		SpawnSetup,
 		Spawning,
 		WinState
 	}
 	// Creating a variable to store the state of the FSM
-	StateFSM m_state;
+	private StateFSM m_state;
 	// Creating an enum to easily store the type of spawning distribution
 	public enum SpawnDistributionEnum
 	{
@@ -62,7 +67,7 @@ public class MobBoss : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Initializing m_state
-		m_state = StateFSM.SpawnSetup;
+		m_state = StateFSM.WarmingUp;
 		// Initializing the active wave
 		m_activeWave = WaveList[0];
 
@@ -81,8 +86,8 @@ public class MobBoss : MonoBehaviour {
 			if (GetActiveEnemyCount() < 1)
 			{
 				// Set state to SetupSpawn
-				Debug.Log("No active enemies. Switching FSM to SpawnSetup.");
-				m_state = StateFSM.SpawnSetup;
+//				Debug.Log("No active enemies. Switching FSM to WarmingUp.");
+				m_state = StateFSM.WarmingUp;
 			}
 //			else
 //			{
@@ -93,12 +98,30 @@ public class MobBoss : MonoBehaviour {
 			// Check to see if the last wave is over and set state to WinState
 			if (GetActiveEnemyCount() < 1)
 			{
-				Debug.Log("No active enemies. Last wave. Switching FSM to WinState.");
+//				Debug.Log("No active enemies. Last wave. Switching FSM to WinState.");
 				m_state = StateFSM.WinState;
 			}
 			break;
+		case StateFSM.WarmingUp:
+//			Debug.Log("FSM is in WarmingUp");
+			// If m_warmUpTimer has no value, get the value (first loop in this state)
+			if (m_warmUpTimer == 0f)
+			{
+				m_warmUpTimer = GetWarmUpTime(m_activeWave);
+			}
+
+//			Debug.Log(GetSecondsToNextWave());
+
+			// If the current time has surpassed the time for the next wave, set m_warmUpTimer to null
+			// and change the state to SpawnSetup
+			if (Time.time >= m_warmUpTimer)
+			{
+				m_warmUpTimer = 0f;
+				m_state = StateFSM.SpawnSetup;
+			}
+			break;
 		case StateFSM.SpawnSetup:
-			Debug.Log("FSM is in SpawnSetup.");
+//			Debug.Log("FSM is in SpawnSetup.");
 
 			// Looping through all platoons in the active wave and assigning each a spawn point
 			if (spawnDistributionType == SpawnDistributionEnum.RandomDistribution)
@@ -107,18 +130,18 @@ public class MobBoss : MonoBehaviour {
 			}
 			else if (spawnDistributionType == SpawnDistributionEnum.EvenDistribution)
 			{
-				Debug.Log ("spawnDistributionType is set to EvenDistribution");
+//				Debug.Log ("spawnDistributionType is set to EvenDistribution");
 				EvenSpawnDistributor();
 			}
 			else 
 			{
-				Debug.LogError("spawnDistributionType is set to an unknown value: " + spawnDistributionType);
+//				Debug.LogError("spawnDistributionType is set to an unknown value: " + spawnDistributionType);
 			}
 
-			Debug.Log("Number of spawn points with platoons: " + m_spawnPointsWithPlatoons.Count);
+//			Debug.Log("Number of spawn points with platoons: " + m_spawnPointsWithPlatoons.Count);
 
 			// Set state to Spawning
-			Debug.Log("All platoons in the wave have been given a spawn point. Switching FSM to Spawning.");
+//			Debug.Log("All platoons in the wave have been given a spawn point. Switching FSM to Spawning.");
 			m_state = StateFSM.Spawning;
 			break;
 		case StateFSM.Spawning:
@@ -180,11 +203,20 @@ public class MobBoss : MonoBehaviour {
 
 			break;
 		case StateFSM.WinState:
-			Debug.Log("You WIN!!!");
+//			Debug.Log("You WIN!!!");
 			break;
 		}
 	}
-	
+
+	// Used to get the state of the MobBoss from outside
+	public StateFSM MobBossState
+	{
+		get
+		{
+			return m_state;
+		}
+	}
+
 	// Called by individual SpawnPoints on their Awake function
 	public void RegisterSpawnPoint(SpawnPoint sp)
 	{
@@ -246,12 +278,26 @@ public class MobBoss : MonoBehaviour {
 				m_spawnPointsWithPlatoons.Add (chosenSpawnPoint);
 			}
 
-			Debug.Log("The spawn point of mob '" + currentPlatoon.mobPrefab.name + "' is : " + GetSpawnIndex(chosenSpawnPoint));
+//			Debug.Log("The spawn point of mob '" + currentPlatoon.mobPrefab.name + "' is : " + GetSpawnIndex(chosenSpawnPoint));
 		}
 	}
 
 	public void EvenSpawnDistributor() 
 	{
-		Debug.LogWarning("Even spawning distribution is not set up yet!");
+//		Debug.LogWarning("Even spawning distribution is not set up yet!");
+	}
+
+	public float GetWarmUpTime(Wave w)
+	{
+		return Time.time + w.WarmUp;
+	}
+
+	public int GetSecondsToNextWave()
+	{
+		if (m_warmUpTimer != null)
+		{
+			return (int)Math.Round(m_warmUpTimer - Time.time, 0);
+		}
+		return 0;
 	}
 }

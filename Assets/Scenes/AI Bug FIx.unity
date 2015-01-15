@@ -2986,7 +2986,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 0}
   SpawnFXPrefabs: []
-  helpbox: 155
+  helpbox: 188
 --- !u!114 &850141077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,6 +3856,14 @@ Prefab:
       propertyPath: WaveList.Array.data[1].PlatoonList.Array.data[1].mobCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
+      propertyPath: WaveList.Array.data[0].WarmUp
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
+      propertyPath: WaveList.Array.data[1].WarmUp
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
   m_RootGameObject: {fileID: 1431364076}
@@ -3925,6 +3933,7 @@ MonoBehaviour:
     - mobPrefab: {fileID: 11400008, guid: f4a335b0d4b45465e9e1eb6dc3bf696c, type: 2}
       mobCount: 1
       platoonSpawnPoint: {fileID: 0}
+    WarmUp: 12
   - PlatoonList:
     - mobPrefab: {fileID: 11400008, guid: f465fa27a2b5a4fbf94d94aa1777a1f0, type: 2}
       mobCount: 1
@@ -3932,6 +3941,7 @@ MonoBehaviour:
     - mobPrefab: {fileID: 11400008, guid: f465fa27a2b5a4fbf94d94aa1777a1f0, type: 2}
       mobCount: 1
       platoonSpawnPoint: {fileID: 0}
+    WarmUp: 12
 --- !u!4 &1431364078
 Transform:
   m_ObjectHideFlags: 0
@@ -4135,7 +4145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400030, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: helpbox
-      value: 155
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 11400028, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: m_Enabled
