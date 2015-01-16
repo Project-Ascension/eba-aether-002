@@ -6,6 +6,7 @@ public class StatsScript : MonoBehaviour {
 	protected int m_killCount;
 	protected int m_deathCount;
 	protected int m_playerHealth;
+	protected int m_shotsFired;
 
 	MobBoss mobBoss;
 
@@ -38,7 +39,7 @@ public class StatsScript : MonoBehaviour {
 				m_ScoreStyle = new GUIStyle("Label");
 				m_ScoreStyle.font = m_scoreFont;
 				m_ScoreStyle.alignment = TextAnchor.MiddleLeft;
-				m_ScoreStyle.fontSize = 28;
+				m_ScoreStyle.fontSize = 16;
 				m_ScoreStyle.wordWrap = false;
 			}
 			return m_ScoreStyle;
@@ -129,9 +130,23 @@ public class StatsScript : MonoBehaviour {
 		get
 		{
 			string sString = "Kills: " + m_killCount + "\n"
-				+ "Deaths: " + m_deathCount;
+				+ "Deaths: " + m_deathCount + "\n"
+					+ "Shots Fired: " + shotsFired;
 
 			return sString;
+		}
+	}
+
+	public int shotsFired
+	{
+		get
+		{
+			return m_shotsFired;
+		}
+
+		set
+		{
+			m_shotsFired = value;
 		}
 	}
 

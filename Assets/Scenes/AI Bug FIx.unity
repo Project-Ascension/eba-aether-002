@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &49715784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +662,7 @@ GameObject:
   - 114: {fileID: 327468566}
   - 114: {fileID: 327468565}
   - 114: {fileID: 327468564}
+  - 114: {fileID: 327468570}
   - 111: {fileID: 327468569}
   m_Layer: 0
   m_Name: 1Viper
@@ -696,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: {fileID: 11400000, guid: 9d859da0738712d40b93ac2ffd147edf, type: 2}
   ID: 0
-  weaponHelp: 210
+  weaponHelp: 265
 --- !u!114 &327468565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1624837370}
   m_GameObject: {fileID: 327468562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3320cb8b89dc2547959c4c6e6621e03, type: 3}
   m_Name: 
@@ -985,6 +986,76 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &327468570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 327468562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c219c7f4433f64c338b31188d5a566ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Persist: 0
+  States:
+  - TypeName: eba_FPWeaponShooter
+    Name: Zoom
+    TextAsset: {fileID: 4900000, guid: 6ce63e3d7f90444a0b1038d87071a56d, type: 3}
+    StatesToBlock: 
+  - TypeName: eba_FPWeaponShooter
+    Name: OutOfControl
+    TextAsset: {fileID: 4900000, guid: fb2ac07430a1d40d18e5121dfc801f90, type: 3}
+    StatesToBlock: 
+  - TypeName: eba_FPWeaponShooter
+    Name: Default
+    TextAsset: {fileID: 0}
+    StatesToBlock: 
+  Children: []
+  Siblings: []
+  Family: []
+  Renderers: []
+  AudioSources: []
+  m_ProjectileSpawnPoint: {fileID: 0}
+  ProjectilePrefab: {fileID: 100000, guid: b468e2c06761eff4db6862aa008a26fa, type: 2}
+  ProjectileScale: .400000006
+  ProjectileFiringRate: .400000006
+  ProjectileSpawnDelay: 0
+  ProjectileCount: 1
+  ProjectileSpread: 2
+  MuzzleFlashPosition: {x: .0700000003, y: -.0450000018, z: 1.22000003}
+  MuzzleFlashScale: {x: .25, y: .25, z: .180000007}
+  MuzzleFlashFadeSpeed: .075000003
+  MuzzleFlashPrefab: {fileID: 100000, guid: f8c6c34daab563340b2a75bc4a7ecbd2, type: 2}
+  MuzzleFlashDelay: 0
+  m_MuzzleFlashSpawnPoint: {fileID: 0}
+  ShellPrefab: {fileID: 100000, guid: 0645d85cd7b7e334299539b03d28395a, type: 2}
+  ShellScale: .0500000007
+  ShellEjectDirection: {x: 2, y: 1, z: 1}
+  ShellEjectPosition: {x: .300000012, y: -.0500000007, z: 1.10000002}
+  ShellEjectVelocity: .5
+  ShellEjectDelay: .100000001
+  ShellEjectSpin: 1
+  m_ShellEjectSpawnPoint: {fileID: 0}
+  SoundFire: {fileID: 8300000, guid: c812ed08e6bddbc4e889ad452441cc8d, type: 3}
+  SoundFireDelay: 0
+  SoundFirePitch: {x: 1, y: 1}
+  FirePosition: {x: 0, y: 0, z: 0}
+  ProjectileTapFiringRate: .100000001
+  MotionPositionRecoil: {x: 0, y: 0, z: -.0500000007}
+  MotionRotationRecoil: {x: -.200000003, y: 0, z: 1}
+  MotionRotationRecoilDeadZone: .5
+  MotionDryFireRecoil: -.100000001
+  MotionRecoilDelay: 0
+  MuzzleFlashFirstShotMaxDeviation: 180
+  SoundDryFire: {fileID: 8300000, guid: 17a20244025722c4387359c88bd319a1, type: 3}
+  MotionPositionReset: 0
+  MotionRotationReset: 1
+  MotionPositionPause: 0
+  MotionRotationPause: 1
+  MotionRotationRecoilCameraFactor: 0
+  MotionPositionRecoilCameraFactor: 0
+  AnimationFire: {fileID: 7400016, guid: 6430f79e6f5e5d943985886a1fb8d3c0, type: 3}
 --- !u!1 &408870288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,6 +2983,7 @@ GameObject:
   - 114: {fileID: 850141076}
   - 114: {fileID: 850141075}
   - 114: {fileID: 850141084}
+  - 82: {fileID: 850141085}
   m_Layer: 30
   m_Name: Player_141205
   m_TagString: Player
@@ -2986,7 +3058,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 0}
   SpawnFXPrefabs: []
-  helpbox: 188
+  helpbox: 177
 --- !u!114 &850141077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3194,6 +3266,64 @@ MonoBehaviour:
   FallImpactPitch: {x: 1, y: 1.5}
   FallImpactSounds: []
   CameraShakeFactor: .0199999996
+--- !u!82 &850141085
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850141073}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &976313504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,7 +3410,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f19a083342b084786a12e53b519324c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f19a083342b084786a12e53b519324c4, type: 2}
@@ -3858,11 +3988,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: WaveList.Array.data[0].WarmUp
-      value: 12
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: WaveList.Array.data[1].WarmUp
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
@@ -3933,7 +4063,7 @@ MonoBehaviour:
     - mobPrefab: {fileID: 11400008, guid: f4a335b0d4b45465e9e1eb6dc3bf696c, type: 2}
       mobCount: 1
       platoonSpawnPoint: {fileID: 0}
-    WarmUp: 12
+    WarmUp: 3
   - PlatoonList:
     - mobPrefab: {fileID: 11400008, guid: f465fa27a2b5a4fbf94d94aa1777a1f0, type: 2}
       mobCount: 1
@@ -3941,7 +4071,7 @@ MonoBehaviour:
     - mobPrefab: {fileID: 11400008, guid: f465fa27a2b5a4fbf94d94aa1777a1f0, type: 2}
       mobCount: 1
       platoonSpawnPoint: {fileID: 0}
-    WarmUp: 12
+    WarmUp: 5
 --- !u!4 &1431364078
 Transform:
   m_ObjectHideFlags: 0
@@ -3969,7 +4099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1485380854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,7 +4275,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400030, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: helpbox
-      value: 188
+      value: 177
       objectReference: {fileID: 0}
     - target: {fileID: 11400028, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: m_Enabled
@@ -4153,7 +4283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: weaponHelp
-      value: 210
+      value: 265
       objectReference: {fileID: 0}
     - target: {fileID: 11400034, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: weaponHelp
@@ -4162,6 +4292,14 @@ Prefab:
     - target: {fileID: 11400008, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
       propertyPath: weaponHelp
       value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 276fbc52c34814b0cb42ccf4b499f18e, type: 2}
@@ -4270,7 +4408,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f19a083342b084786a12e53b519324c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f19a083342b084786a12e53b519324c4, type: 2}

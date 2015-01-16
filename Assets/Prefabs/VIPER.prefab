@@ -181,6 +181,7 @@ Animation:
   m_Animation: {fileID: 7400016, guid: 6430f79e6f5e5d943985886a1fb8d3c0, type: 3}
   m_Animations:
   - {fileID: 7400016, guid: 6430f79e6f5e5d943985886a1fb8d3c0, type: 3}
+  - {fileID: 7400024, guid: 6430f79e6f5e5d943985886a1fb8d3c0, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
