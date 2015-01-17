@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/UFPS/Base/Content/Levels/DemoScene3/DemoScene3.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/UFPS/Base/Content/Levels/DemoScene1/DemoScene1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/UFPS/Base/Content/Levels/DemoScene2/DemoScene2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/UFPS/Base/Content/Levels/CleanScene/CleanScene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/UFPS/Base/Content/Levels/SkyCity/SkyCity.unity

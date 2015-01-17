@@ -592,7 +592,7 @@ MonoBehaviour:
   RespawnCheckRadius: .5
   RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   DeathEffect: {fileID: 100000, guid: 40b73606d45c7e0408551e587b60fae4, type: 2}
-  helpbox: 0
+  helpbox: 62
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -20,7 +20,7 @@ ProjectileScale 0.4
 ProjectileFiringRate 0.4
 ProjectileSpawnDelay 0
 ProjectileCount 1
-ProjectileSpread 1.5
+ProjectileSpread 0
 MuzzleFlashPosition -0.0047317 -0.01 1.65
 MuzzleFlashScale 0.25 0.25 0.18
 MuzzleFlashFadeSpeed 0.075

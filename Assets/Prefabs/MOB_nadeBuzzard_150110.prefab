@@ -16,7 +16,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400002}
   m_Layer: 25
-  m_Name: SimpleAITurret
+  m_Name: NadeTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fc7a40f84be4890867c31911fdba95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 4
+  MaxHealth: 15
   DeathSpawnObjects:
   - {fileID: 100018, guid: 7957ebb5ffcb6604a8036e97b3c4369f, type: 2}
   - {fileID: 100004, guid: da76bd3c99d50405485d8669f14bf694, type: 2}
@@ -537,7 +537,7 @@ MonoBehaviour:
   RespawnCheckRadius: 1
   RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   DeathEffect: {fileID: 0}
-  helpbox: 84
+  helpbox: 128
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewRange: 50
   AimSpeed: 200
-  WakeInterval: .200000003
+  WakeInterval: 1
   FireAngle: 30
 --- !u!114 &11400006
 MonoBehaviour:
@@ -1839,7 +1839,7 @@ SkinnedMeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 9c1619e800ddb448583bf29cd46250e6, type: 2}
+  - {fileID: 2100000, guid: a143813acba0b49bc9058c235b561e63, type: 2}
   - {fileID: 2100000, guid: f79bc4fa98bcc4ee98a0d2a1f158c7ac, type: 2}
   - {fileID: 2100000, guid: 0f3dd9d498d5f449a894bc2004fef258, type: 2}
   - {fileID: 2100000, guid: 675229425a28f40c29409e477d52f405, type: 2}

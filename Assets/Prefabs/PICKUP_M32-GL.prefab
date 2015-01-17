@@ -276,7 +276,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -333,7 +333,7 @@ MonoBehaviour:
   Amount: 5
   m_Item:
     Type: {fileID: 11400000, guid: 07f42a7f11b9d4e32811d78c6c90042d, type: 2}
-    helpbox: 144
+    helpbox: 133
   m_Recipient:
     Tags: []
     helpbox: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   Amount: 0
   m_Item:
     Type: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0, type: 2}
-    helpbox: 144
+    helpbox: 133
   m_Recipient:
     Tags: []
     helpbox: 78
