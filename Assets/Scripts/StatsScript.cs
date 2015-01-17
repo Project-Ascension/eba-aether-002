@@ -106,6 +106,24 @@ public class StatsScript : MonoBehaviour {
 		m_playerHealth -= damage;
 	}
 
+	public float GetKDRatio()
+	{
+		int kills = m_killCount;
+		int deaths = m_deathCount;
+
+		if (kills < 1)
+		{
+			kills = 1;
+		}
+
+		if (deaths < 1)
+		{
+			deaths = 1;
+		}
+
+		return ((float)kills)/((float)deaths);
+	}
+
 	void OnGUI () {
 //		GUI.color = m_scoreRectColor;
 //		GUI.Box(m_scoreRectangle, "");
@@ -131,7 +149,8 @@ public class StatsScript : MonoBehaviour {
 		{
 			string sString = "Kills: " + m_killCount + "\n"
 				+ "Deaths: " + m_deathCount + "\n"
-					+ "Shots Fired: " + shotsFired;
+					+ "Shots Fired: " + shotsFired + "\n"
+					+ "K/D Ratio: " + GetKDRatio().ToString("F2");
 
 			return sString;
 		}
