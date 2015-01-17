@@ -16,6 +16,8 @@ public class StatsScript : MonoBehaviour {
 //	public int m_scoreHeight = 100;
 	protected float m_scoreHeight { get { return ((ScoreStyle.CalcSize(new GUIContent(statsString)).y)); } }
 	protected float m_scoreWidth { get { return ((ScoreStyle.CalcSize(new GUIContent(statsString)).x)); } }
+	protected float m_remainingEnemiesHeight { get { return ((RemainingEnemiesStyle.CalcSize(new GUIContent(remainingEnemiesString)).y)); } } 
+	protected float m_remainingEnemiesWidth { get { return ((RemainingEnemiesStyle.CalcSize(new GUIContent(remainingEnemiesString)).x)); } } 
 //	public int m_scoreWidth = 100;
 	public Color m_scoreRectColor = new Color(0, 0, 0, 0.5f);
 
@@ -25,9 +27,11 @@ public class StatsScript : MonoBehaviour {
 	public Texture Background = null;
 
 	protected Rect m_scoreRectangle { get { return new Rect(m_scoreXOffset, m_scoreYOffset, 40 + m_scoreWidth, 20 + m_scoreHeight); } }
+	protected Rect m_remainingEnemiesRectangle { get { return new Rect(Screen.width - m_remainingEnemiesWidth, 0, m_remainingEnemiesWidth, m_remainingEnemiesHeight); } }
 	protected Rect m_timerRectangle { get { return new Rect((Screen.width - m_timerWidth) / 2, (Screen.height - m_timerHeight) / 2, m_timerWidth, m_timerHeight); } } 
 
 	protected GUIStyle m_ScoreStyle = null;
+	protected GUIStyle m_RemainingEnemiesStyle = null;
 	protected GUIStyle m_WaveTimerStyle = null;
 	protected GUIStyle m_WaveLabelStyle = null;
 	public GUIStyle ScoreStyle
@@ -43,6 +47,22 @@ public class StatsScript : MonoBehaviour {
 				m_ScoreStyle.wordWrap = false;
 			}
 			return m_ScoreStyle;
+		}
+	}
+
+	public GUIStyle RemainingEnemiesStyle
+	{
+		get
+		{
+			if (m_RemainingEnemiesStyle == null)
+			{
+				m_RemainingEnemiesStyle = new GUIStyle("Label");
+				m_RemainingEnemiesStyle.font = m_scoreFont;
+				m_RemainingEnemiesStyle.alignment = TextAnchor.MiddleRight;
+				m_RemainingEnemiesStyle.fontSize = 16;
+				m_RemainingEnemiesStyle.wordWrap = false;
+			}
+			return m_RemainingEnemiesStyle;
 		}
 	}
 
@@ -129,9 +149,11 @@ public class StatsScript : MonoBehaviour {
 //		GUI.Box(m_scoreRectangle, "");
 		GUI.color = m_scoreRectColor;
 		GUI.DrawTexture(m_scoreRectangle, Background);
+		GUI.DrawTexture(m_remainingEnemiesRectangle, Background);
 
 		GUI.color = Color.white;
 		GUI.Label(m_scoreRectangle, statsString, ScoreStyle);
+		GUI.Label(m_remainingEnemiesRectangle, remainingEnemiesString, RemainingEnemiesStyle);
 
 		if (mobBoss.MobBossState == MobBoss.StateFSM.WarmingUp)
 		{
@@ -175,6 +197,15 @@ public class StatsScript : MonoBehaviour {
 		{
 			string seconds = mobBoss.GetSecondsToNextWave().ToString();
 			return seconds;
+		}
+	}
+
+	string remainingEnemiesString
+	{
+		get
+		{
+			string remainingEnemiesString = "Enemies Remaining: " + mobBoss.GetActiveEnemyCount();
+			return remainingEnemiesString;
 		}
 	}
 
