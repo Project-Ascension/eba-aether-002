@@ -63,9 +63,17 @@ public class MobBoss : MonoBehaviour {
 		RandomDistribution
 	}
 
+	Bastet m_bastet;
 
 	// Use this for initialization
 	void Start () {
+		// Grabbing Bastet
+		m_bastet = GameObject.Find("Bastet").GetComponent<Bastet>();
+		if (!m_bastet)
+		{
+			Debug.LogError("MobBoss could not find the 'Bastet' script!");
+		}
+
 		// Initializing m_state
 		m_state = StateFSM.WarmingUp;
 		// Initializing the active wave
@@ -99,7 +107,8 @@ public class MobBoss : MonoBehaviour {
 			if (GetActiveEnemyCount() < 1)
 			{
 //				Debug.Log("No active enemies. Last wave. Switching FSM to WinState.");
-				m_state = StateFSM.WinState;
+//				m_state = StateFSM.WinState;
+				m_bastet.SetWin();
 			}
 			break;
 		case StateFSM.WarmingUp:
@@ -202,9 +211,9 @@ public class MobBoss : MonoBehaviour {
 			}
 
 			break;
-		case StateFSM.WinState:
-//			Debug.Log("You WIN!!!");
-			break;
+//		case StateFSM.WinState:
+////			Debug.Log("You WIN!!!");
+//			break;
 		}
 	}
 

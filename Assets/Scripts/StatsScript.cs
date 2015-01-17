@@ -8,7 +8,8 @@ public class StatsScript : MonoBehaviour {
 	protected int m_playerHealth;
 	protected int m_shotsFired;
 
-	MobBoss mobBoss;
+	MobBoss m_mobBoss;
+	Bastet m_bastet;
 
 	public Font m_scoreFont = null;
 	public int m_scoreXOffset = 0;
@@ -103,7 +104,12 @@ public class StatsScript : MonoBehaviour {
 		m_killCount = 0;
 		m_playerHealth = 100;
 
-		mobBoss = GameObject.Find("MobBoss").GetComponent<MobBoss>();
+		m_mobBoss = GameObject.Find("MobBoss").GetComponent<MobBoss>();
+		if (!m_mobBoss)
+			Debug.LogError("StatsScript could not find 'MobBoss' script!");
+		m_bastet = GameObject.Find("Bastet").GetComponent<Bastet>();
+		if (!m_bastet)
+			Debug.LogError("StatsScript could not find 'Bastet' script!");
 	}
 	
 	// Update is called once per frame
@@ -119,6 +125,7 @@ public class StatsScript : MonoBehaviour {
 	public void AddDeath()
 	{
 		m_deathCount += 1;
+		m_bastet.LoseLife();
 		Debug.Log("Death Count = " + m_deathCount);
 	}
 
@@ -155,7 +162,7 @@ public class StatsScript : MonoBehaviour {
 		GUI.Label(m_scoreRectangle, statsString, ScoreStyle);
 		GUI.Label(m_remainingEnemiesRectangle, remainingEnemiesString, RemainingEnemiesStyle);
 
-		if (mobBoss.MobBossState == MobBoss.StateFSM.WarmingUp)
+		if (m_mobBoss.MobBossState == MobBoss.StateFSM.WarmingUp)
 		{
 			GUI.color = m_scoreRectColor;
 			GUI.DrawTexture(m_timerRectangle, Background);
@@ -169,7 +176,8 @@ public class StatsScript : MonoBehaviour {
 	{
 		get
 		{
-			string sString = "Kills: " + m_killCount + "\n"
+			string sString = "Lives Remaining: " + (m_bastet.GetLives() - 1) + "\n"
+				+ "Kills: " + m_killCount + "\n"
 				+ "Deaths: " + m_deathCount + "\n"
 					+ "Shots Fired: " + shotsFired + "\n"
 					+ "K/D Ratio: " + GetKDRatio().ToString("F2");
@@ -195,7 +203,7 @@ public class StatsScript : MonoBehaviour {
 	{
 		get
 		{
-			string seconds = mobBoss.GetSecondsToNextWave().ToString();
+			string seconds = m_mobBoss.GetSecondsToNextWave().ToString();
 			return seconds;
 		}
 	}
@@ -204,7 +212,7 @@ public class StatsScript : MonoBehaviour {
 	{
 		get
 		{
-			string remainingEnemiesString = "Enemies Remaining: " + mobBoss.GetActiveEnemyCount();
+			string remainingEnemiesString = "Enemies Remaining: " + m_mobBoss.GetActiveEnemyCount();
 			return remainingEnemiesString;
 		}
 	}
