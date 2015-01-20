@@ -1372,6 +1372,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 11400052, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
+      propertyPath: m_ItemRecords.helpbox
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400052, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
+      propertyPath: m_ItemCaps.helpbox
+      value: 89
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
   m_RootGameObject: {fileID: 1255608497}
@@ -6651,10 +6659,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemRecords:
     itemList: 87
-    helpbox: 122
+    helpbox: 111
   m_ItemCaps:
     itemList: 88
-    helpbox: 100
+    helpbox: 89
   m_SpaceLimit:
     spaceLimit: 77
     helpbox: 133
