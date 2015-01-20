@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc13c48b5ea45f47abb1efd236a5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
+  Type: {fileID: 0}
   ID: 0
   weaponHelp: 188
 --- !u!114 &281965598
@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc13c48b5ea45f47abb1efd236a5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0, type: 2}
+  Type: {fileID: 0}
   ID: 3
   weaponHelp: 188
 --- !u!114 &321445248
@@ -2072,9 +2072,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc13c48b5ea45f47abb1efd236a5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0, type: 2}
+  Type: {fileID: 11400000, guid: 4b6dc310f26918c46aee38b5fcacdbf9, type: 2}
   ID: 0
-  weaponHelp: 188
+  weaponHelp: 265
 --- !u!114 &339620960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   RespawnCheckRadius: 1
   RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   DeathEffect: {fileID: 0}
-  helpbox: 84
+  helpbox: 95
 --- !u!65 &459050828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4954,7 +4954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: {fileID: 11400000, guid: 4b6dc310f26918c46aee38b5fcacdbf9, type: 2}
   ID: 0
-  weaponHelp: 188
+  weaponHelp: 254
 --- !u!114 &799953255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5796,7 +5796,7 @@ MonoBehaviour:
   ID: 3
   Amount: 0
   m_Item:
-    Type: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0, type: 2}
+    Type: {fileID: 0}
     helpbox: 133
   m_Recipient:
     Tags: []
@@ -5840,7 +5840,7 @@ MonoBehaviour:
   ID: 0
   Amount: 5
   m_Item:
-    Type: {fileID: 11400000, guid: 07f42a7f11b9d4e32811d78c6c90042d, type: 2}
+    Type: {fileID: 0}
     helpbox: 133
   m_Recipient:
     Tags: []
@@ -5970,7 +5970,7 @@ MonoBehaviour:
   ID: 0
   Amount: 10
   m_Item:
-    Type: {fileID: 11400000, guid: 07f42a7f11b9d4e32811d78c6c90042d, type: 2}
+    Type: {fileID: 0}
     helpbox: 144
   m_Recipient:
     Tags: []
@@ -6888,7 +6888,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: weaponHelp
-      value: 188
+      value: 265
       objectReference: {fileID: 0}
     - target: {fileID: 11400044, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: m_Enabled
@@ -6901,30 +6901,38 @@ Prefab:
     - target: {fileID: 11400004, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: Type
       value: 
-      objectReference: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff,
+      objectReference: {fileID: 11400000, guid: 9d859da0738712d40b93ac2ffd147edf,
         type: 2}
     - target: {fileID: 11400004, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: ID
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400030, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: weaponHelp
-      value: 188
+      value: 254
       objectReference: {fileID: 0}
     - target: {fileID: 11400038, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: weaponHelp
-      value: 188
+      value: 265
       objectReference: {fileID: 0}
     - target: {fileID: 11400038, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: Type
       value: 
-      objectReference: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0,
+      objectReference: {fileID: 11400000, guid: 4b6dc310f26918c46aee38b5fcacdbf9,
         type: 2}
     - target: {fileID: 11400038, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: ID
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
+      propertyPath: helpbox
+      value: 177
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 09669e899461a462d8af3a726c7c4268, type: 2}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -7170,7 +7178,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 0}
   SpawnFXPrefabs: []
-  helpbox: 133
+  helpbox: 177
 --- !u!114 &1255608502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7373,22 +7381,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemRecords:
     itemList: 87
-    helpbox: 122
+    helpbox: 155
   m_ItemCaps:
     itemList: 88
-    helpbox: 100
+    helpbox: 122
   m_SpaceLimit:
     spaceLimit: 77
-    helpbox: 133
-  ItemInstances: []
+    helpbox: 166
+  ItemInstances:
+  - Type: {fileID: 11400000, guid: 34815dba488a44f5e8731f67cc7107ea, type: 2}
+    ID: 0
   m_ItemCapInstances: []
-  m_UnitBankInstances:
-  - Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
-    ID: 1
-    UnitType: {fileID: 11400000, guid: c11d93b063eaa9043b51fa3831599c63, type: 2}
-    Count: 50
-    m_Capacity: 50
-    m_Inventory: {fileID: 1255608510}
+  m_UnitBankInstances: []
   m_InternalUnitBanks: []
   CapsEnabled: 0
   SpaceEnabled: 0
@@ -8498,9 +8502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc13c48b5ea45f47abb1efd236a5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
-  ID: 1
-  weaponHelp: 188
+  Type: {fileID: 11400000, guid: 9d859da0738712d40b93ac2ffd147edf, type: 2}
+  ID: 0
+  weaponHelp: 265
 --- !u!114 &1515564091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9974,7 +9978,7 @@ MonoBehaviour:
   ItemInstances: []
   m_ItemCapInstances: []
   m_UnitBankInstances:
-  - Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
+  - Type: {fileID: 0}
     ID: 1
     UnitType: {fileID: 11400000, guid: c11d93b063eaa9043b51fa3831599c63, type: 2}
     Count: 50
