@@ -106,7 +106,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 143: {fileID: 14300000}
-  - 114: {fileID: 11400018}
   - 114: {fileID: 11400020}
   - 114: {fileID: 11400022}
   - 114: {fileID: 11400016}
@@ -115,6 +114,9 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400052}
+  - 114: {fileID: 11400050}
+  - 114: {fileID: 11400018}
   m_Layer: 30
   m_Name: Player_150117
   m_TagString: Player
@@ -145,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .496630192, y: 4.34569931, z: -12.4856415}
+  m_LocalPosition: {x: 44.4092903, y: 7.36782789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -475,12 +477,12 @@ MonoBehaviour:
   Renderers: []
   AudioSources: []
   m_ProjectileSpawnPoint: {fileID: 0}
-  ProjectilePrefab: {fileID: 100000, guid: b468e2c06761eff4db6862aa008a26fa, type: 2}
+  ProjectilePrefab: {fileID: 100000, guid: 55f1c3810e3d043739e316842108277f, type: 2}
   ProjectileScale: .400000006
   ProjectileFiringRate: .400000006
   ProjectileSpawnDelay: 0
   ProjectileCount: 1
-  ProjectileSpread: .200000003
+  ProjectileSpread: .300000012
   MuzzleFlashPosition: {x: .0700000003, y: -.0450000018, z: 1.22000003}
   MuzzleFlashScale: {x: .25, y: .25, z: .180000007}
   MuzzleFlashFadeSpeed: .075000003
@@ -541,7 +543,7 @@ MonoBehaviour:
   DeathEffect: {fileID: 0}
   helpbox: 0
   AllowFallDamage: 1
-  FallImpactThreshold: .189999998
+  FallImpactThreshold: .5
   DeathOnFallImpactThreshold: 0
   FallImpactPitch: {x: 1, y: 1.5}
   FallImpactSounds: []
@@ -557,9 +559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc13c48b5ea45f47abb1efd236a5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 9d859da0738712d40b93ac2ffd147edf, type: 2}
+  Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
   ID: 0
-  weaponHelp: 210
+  weaponHelp: 188
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,16 +767,16 @@ MonoBehaviour:
   MotorSlopeSpeedUp: 1
   MotorSlopeSpeedDown: 1
   MotorFreeFly: 0
-  MotorJumpForce: .25
-  MotorJumpForceDamping: .0489999987
-  MotorJumpForceHold: 0
+  MotorJumpForce: .180000007
+  MotorJumpForceDamping: .0799999982
+  MotorJumpForceHold: .00300000003
   MotorJumpForceHoldDamping: .5
   PhysicsForceDamping: .0500000007
   PhysicsPushForce: 5
-  PhysicsGravityModifier: .150000006
+  PhysicsGravityModifier: .200000003
   PhysicsSlopeSlideLimit: 30
   PhysicsSlopeSlidiness: .150000006
-  PhysicsWallBounce: .182999998
+  PhysicsWallBounce: 0
   PhysicsWallFriction: 0
   PhysicsHasCollisionTrigger: 0
 --- !u!114 &11400020
@@ -1036,7 +1038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: {fileID: 11400000, guid: 4b6dc310f26918c46aee38b5fcacdbf9, type: 2}
   ID: 0
-  weaponHelp: 199
+  weaponHelp: 188
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,9 +1249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc13c48b5ea45f47abb1efd236a5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 4b6dc310f26918c46aee38b5fcacdbf9, type: 2}
+  Type: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0, type: 2}
   ID: 0
-  weaponHelp: 199
+  weaponHelp: 188
 --- !u!114 &11400040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1383,7 +1385,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3320cb8b89dc2547959c4c6e6621e03, type: 3}
   m_Name: 
@@ -1593,6 +1595,58 @@ MonoBehaviour:
   MotionRotationRecoilCameraFactor: 0
   MotionPositionRecoilCameraFactor: .0500000007
   AnimationFire: {fileID: 7400000, guid: 3d25da4cbf8ae454db23f4ecf74572e1, type: 3}
+--- !u!114 &11400050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca95b1d30ccfcd4cabb3650619a751c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImageCrosshair: {fileID: 2800000, guid: 5e0ebfc51683e684f9c20e69eb644f62, type: 3}
+  HideOnFirstPersonZoom: 0
+  HideOnDeath: 1
+--- !u!114 &11400052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f51d02c672daf34b8feff75a9250455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemRecords:
+    itemList: 87
+    helpbox: 122
+  m_ItemCaps:
+    itemList: 88
+    helpbox: 100
+  m_SpaceLimit:
+    spaceLimit: 77
+    helpbox: 133
+  ItemInstances: []
+  m_ItemCapInstances: []
+  m_UnitBankInstances:
+  - Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
+    ID: 1
+    UnitType: {fileID: 11400000, guid: c11d93b063eaa9043b51fa3831599c63, type: 2}
+    Count: 50
+    m_Capacity: 50
+    m_Inventory: {fileID: 11400052}
+  m_InternalUnitBanks: []
+  CapsEnabled: 0
+  SpaceEnabled: 0
+  SpaceMode: 0
+  AllowOnlyListed: 0
+  m_TotalSpace: 100
+  m_UsedSpace: 0
+  m_Misc:
+    ResetOnRespawn: 1
 --- !u!143 &14300000
 CharacterController:
   m_ObjectHideFlags: 1
