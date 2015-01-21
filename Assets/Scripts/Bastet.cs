@@ -54,7 +54,7 @@ public class Bastet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log("m_currentLives: " + m_CurrentLives);
+//		Debug.Log("m_currentLives: " + m_CurrentLives);
 
 		switch (BastetState)
 		{

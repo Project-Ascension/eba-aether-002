@@ -1971,7 +1971,7 @@ MonoBehaviour:
   RespawnCheckRadius: 1
   RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   DeathEffect: {fileID: 0}
-  helpbox: 84
+  helpbox: 95
 --- !u!65 &459050828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4385,7 +4385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: {fileID: 11400000, guid: 4b6dc310f26918c46aee38b5fcacdbf9, type: 2}
   ID: 0
-  weaponHelp: 254
+  weaponHelp: 188
 --- !u!114 &799953255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5227,7 +5227,7 @@ MonoBehaviour:
   ID: 3
   Amount: 0
   m_Item:
-    Type: {fileID: 0}
+    Type: {fileID: 11400000, guid: fbf6b7327c5c94478bac0db8f933a7f0, type: 2}
     helpbox: 133
   m_Recipient:
     Tags: []
@@ -5271,7 +5271,7 @@ MonoBehaviour:
   ID: 0
   Amount: 5
   m_Item:
-    Type: {fileID: 0}
+    Type: {fileID: 11400000, guid: 07f42a7f11b9d4e32811d78c6c90042d, type: 2}
     helpbox: 133
   m_Recipient:
     Tags: []
@@ -5401,7 +5401,7 @@ MonoBehaviour:
   ID: 0
   Amount: 10
   m_Item:
-    Type: {fileID: 0}
+    Type: {fileID: 11400000, guid: 07f42a7f11b9d4e32811d78c6c90042d, type: 2}
     helpbox: 144
   m_Recipient:
     Tags: []
@@ -6454,7 +6454,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 0}
   SpawnFXPrefabs: []
-  helpbox: 177
+  helpbox: 133
 --- !u!114 &1255608502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6665,12 +6665,16 @@ MonoBehaviour:
     helpbox: 89
   m_SpaceLimit:
     spaceLimit: 77
-    helpbox: 166
-  ItemInstances:
-  - Type: {fileID: 11400000, guid: 34815dba488a44f5e8731f67cc7107ea, type: 2}
-    ID: 0
+    helpbox: 133
+  ItemInstances: []
   m_ItemCapInstances: []
-  m_UnitBankInstances: []
+  m_UnitBankInstances:
+  - Type: {fileID: 11400000, guid: 289966016a3244b4f97f67767a9abaff, type: 2}
+    ID: 1
+    UnitType: {fileID: 11400000, guid: c11d93b063eaa9043b51fa3831599c63, type: 2}
+    Count: 50
+    m_Capacity: 50
+    m_Inventory: {fileID: 1255608510}
   m_InternalUnitBanks: []
   CapsEnabled: 0
   SpaceEnabled: 0
@@ -9162,6 +9166,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 76911978d784a4081a908fa27a372efc, type: 2}
+      propertyPath: GameType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76911978d784a4081a908fa27a372efc, type: 2}
   m_RootGameObject: {fileID: 1969595137}
@@ -9285,6 +9293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab174517bec4442068a9e3371f42bd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameType: 1
   m_startingLives: 3
 --- !u!1 &1976005134
 GameObject:
