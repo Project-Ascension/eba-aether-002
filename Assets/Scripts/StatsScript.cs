@@ -25,16 +25,21 @@ public class StatsScript : MonoBehaviour {
 	protected float m_timerHeight { get { return ((WaveLabelStyle.CalcSize(new GUIContent(waveCounterLabel)).y + WaveTimerStyle.CalcSize(new GUIContent(secondsToNextWave)).y)); } }
 	protected float m_timerWidth { get { return ((WaveLabelStyle.CalcSize(new GUIContent(waveCounterLabel)).x)); } }
 
+	protected float m_winHeight { get{ return ((WinScreenLabelStyle.CalcSize(new GUIContent(winScreenMessage)).y)); } }
+	protected float m_winWidth { get{ return ((WinScreenLabelStyle.CalcSize(new GUIContent(winScreenMessage)).x)); } }
+
 	public Texture Background = null;
 
 	protected Rect m_scoreRectangle { get { return new Rect(m_scoreXOffset, m_scoreYOffset, 40 + m_scoreWidth, 20 + m_scoreHeight); } }
 	protected Rect m_remainingEnemiesRectangle { get { return new Rect(Screen.width - m_remainingEnemiesWidth, 0, m_remainingEnemiesWidth, m_remainingEnemiesHeight); } }
 	protected Rect m_timerRectangle { get { return new Rect((Screen.width - m_timerWidth) / 2, (Screen.height - m_timerHeight) / 2, m_timerWidth, m_timerHeight); } } 
+	protected Rect m_winRectangle { get { return new Rect((Screen.width - m_winWidth) / 2, (Screen.height - m_winHeight) / 2, m_winWidth, m_winHeight); } }
 
 	protected GUIStyle m_ScoreStyle = null;
 	protected GUIStyle m_RemainingEnemiesStyle = null;
 	protected GUIStyle m_WaveTimerStyle = null;
 	protected GUIStyle m_WaveLabelStyle = null;
+	protected GUIStyle m_WinScreenLabelStyle = null;
 	public GUIStyle ScoreStyle
 	{
 		get
@@ -99,6 +104,23 @@ public class StatsScript : MonoBehaviour {
 		}
 	}
 
+	public GUIStyle WinScreenLabelStyle
+	{
+		get
+		{
+			if (m_WinScreenLabelStyle == null)
+			{
+				m_WinScreenLabelStyle = new GUIStyle("Label");
+				m_WinScreenLabelStyle.font = m_scoreFont;
+				m_WinScreenLabelStyle.alignment = TextAnchor.MiddleCenter;
+				m_WinScreenLabelStyle.fontSize = 36;
+				m_WinScreenLabelStyle.wordWrap = false;
+			}
+			return m_WinScreenLabelStyle;
+
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		m_killCount = 0;
@@ -133,6 +155,16 @@ public class StatsScript : MonoBehaviour {
 		m_playerHealth -= damage;
 	}
 
+	public int GetKills()
+	{
+		return m_killCount;
+	}
+
+	public int GetDeaths()
+	{
+		return m_deathCount;
+	}
+
 	public float GetKDRatio()
 	{
 		int kills = m_killCount;
@@ -152,23 +184,35 @@ public class StatsScript : MonoBehaviour {
 	}
 
 	void OnGUI () {
-//		GUI.color = m_scoreRectColor;
-//		GUI.Box(m_scoreRectangle, "");
-		GUI.color = m_scoreRectColor;
-		GUI.DrawTexture(m_scoreRectangle, Background);
-		GUI.DrawTexture(m_remainingEnemiesRectangle, Background);
-
-		GUI.color = Color.white;
-		GUI.Label(m_scoreRectangle, statsString, ScoreStyle);
-		GUI.Label(m_remainingEnemiesRectangle, remainingEnemiesString, RemainingEnemiesStyle);
-
-		if (m_mobBoss.MobBossState == MobBoss.StateFSM.WarmingUp)
+		// Only display the HUD if the game is playing
+		if (m_bastet.GetState() == Bastet.BastetFSM.Playing)
 		{
 			GUI.color = m_scoreRectColor;
-			GUI.DrawTexture(m_timerRectangle, Background);
+			GUI.DrawTexture(m_scoreRectangle, Background);
+			GUI.DrawTexture(m_remainingEnemiesRectangle, Background);
+
 			GUI.color = Color.white;
-			GUI.Label(m_timerRectangle, waveCounterLabel, WaveLabelStyle);
-			GUI.Label(m_timerRectangle, secondsToNextWave, WaveTimerStyle);
+			GUI.Label(m_scoreRectangle, statsString, ScoreStyle);
+			GUI.Label(m_remainingEnemiesRectangle, remainingEnemiesString, RemainingEnemiesStyle);
+
+			// Only display time to next wave if the wave is warming up
+			if (m_mobBoss.MobBossState == MobBoss.StateFSM.WarmingUp)
+			{
+				GUI.color = m_scoreRectColor;
+				GUI.DrawTexture(m_timerRectangle, Background);
+				GUI.color = Color.white;
+				GUI.Label(m_timerRectangle, waveCounterLabel, WaveLabelStyle);
+				GUI.Label(m_timerRectangle, secondsToNextWave, WaveTimerStyle);
+			}
+		}
+
+		// Only display WIN SCREEN if the game is in win mode
+		if (m_bastet.GetState() == Bastet.BastetFSM.Won)
+		{
+			GUI.color = m_scoreRectColor;
+			GUI.DrawTexture(m_winRectangle, Background);
+			GUI.color = Color.white;
+			GUI.Label(m_winRectangle, winScreenMessage, WinScreenLabelStyle);
 		}
 	}
 
@@ -218,4 +262,15 @@ public class StatsScript : MonoBehaviour {
 	}
 
 	string waveCounterLabel = "Seconds To Next Wave";
+
+	string winScreenMessage 
+	{
+		get
+		{
+			string winMessage = "You Win!\nYour Score:\n";
+			// TODO: Change this to access the player's actual score
+			int score = m_bastet.CalculateScore();
+			return winMessage + score.ToString();
+		}
+	}
 }

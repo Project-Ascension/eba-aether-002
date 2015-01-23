@@ -2997,7 +2997,7 @@ MonoBehaviour:
   RespawnCheckRadius: 1
   RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   DeathEffect: {fileID: 0}
-  helpbox: 84
+  helpbox: 95
 --- !u!65 &459050828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11364,6 +11364,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 76911978d784a4081a908fa27a372efc, type: 2}
+      propertyPath: GameType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76911978d784a4081a908fa27a372efc, type: 2}
   m_RootGameObject: {fileID: 1969595137}
@@ -11487,6 +11491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab174517bec4442068a9e3371f42bd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameType: 1
   m_startingLives: 3
 --- !u!1 &1976005134
 GameObject:

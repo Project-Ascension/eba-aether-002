@@ -15,8 +15,6 @@ public class GrassBoss : MonoBehaviour {
 			for (int x = 0; x < x_dimensions; x++) {
 				float randX = Random.Range(-scatter, scatter);
 				float randZ = Random.Range(-scatter, scatter);
-//				float randX = 0;
-//				float randZ = 0;
 				GameObject grassClone = (GameObject) Instantiate(grassPrefab, new Vector3(x * margin + randX, 0, z * margin + randZ), new Quaternion());
 				grassClone.transform.rotation = Quaternion.Euler(-90, 0, 0);
 				BendingGrass bg = grassClone.GetComponent<BendingGrass>();
