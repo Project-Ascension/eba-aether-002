@@ -418,7 +418,7 @@ MonoBehaviour:
   RespawnCheckRadius: 1
   RespawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   DeathEffect: {fileID: 0}
-  helpbox: 84
+  helpbox: 73
 --- !u!65 &200809227
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3352,6 +3352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2d5a8be08d34c22ac7c4a4e1e48ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_debugScore: 1
   m_scoreFont: {fileID: 12800000, guid: 4721e7a71e3620b4dac13fdc767ee80a, type: 3}
   m_scoreXOffset: 0
   m_scoreYOffset: 0
@@ -3874,7 +3875,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: WaveList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 385c3ea76ace047b2b1285b63b85ba30, type: 2}
       propertyPath: m_waveList.Array.size
@@ -4106,14 +4107,6 @@ MonoBehaviour:
       mobCount: 1
       platoonSpawnPoint: {fileID: 0}
     WarmUp: 3
-  - PlatoonList:
-    - mobPrefab: {fileID: 11400008, guid: f465fa27a2b5a4fbf94d94aa1777a1f0, type: 2}
-      mobCount: 1
-      platoonSpawnPoint: {fileID: 0}
-    - mobPrefab: {fileID: 11400008, guid: f465fa27a2b5a4fbf94d94aa1777a1f0, type: 2}
-      mobCount: 1
-      platoonSpawnPoint: {fileID: 0}
-    WarmUp: 5
 --- !u!4 &1431364078
 Transform:
   m_ObjectHideFlags: 0
@@ -4729,6 +4722,10 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: 4721e7a71e3620b4dac13fdc767ee80a,
         type: 3}
+    - target: {fileID: 11400000, guid: 7bee7cf796e5647a7b9004eb33c92fb2, type: 2}
+      propertyPath: m_debugScore
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bee7cf796e5647a7b9004eb33c92fb2, type: 2}
   m_RootGameObject: {fileID: 976313504}

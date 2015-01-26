@@ -121,7 +121,7 @@ public class Bastet : MonoBehaviour {
 			int kills = m_statsBot.GetKills();
 			int deaths = m_statsBot.GetDeaths();
 			int shots = m_statsBot.shotsFired;
-			int score = (kills * 10 + (deaths * 30) - shots) * 10;
+			int score = (kills * 100 + (deaths * 300) - (shots * 10));
 
 			if (score < 0)
 			{
@@ -134,6 +134,23 @@ public class Bastet : MonoBehaviour {
 		else
 		{
 			return -1;
+		}
+	}
+
+	public string CalculateScoreString(bool debug = false)
+	{
+		if (debug == true)	
+		{
+			string score = "";
+			score += "Kills: " + (m_statsBot.GetKills() * 100).ToString() + "\n";
+			score += "Deaths: -" + (m_statsBot.GetDeaths() * 300).ToString() + "\n";
+			score += "Shots: -" + (m_statsBot.shotsFired * 10).ToString() + "\n";
+			score += "Total: " + CalculateScore();
+			return score;
+		}
+		else
+		{
+			return CalculateScore().ToString();
 		}
 	}
 }

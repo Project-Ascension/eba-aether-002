@@ -8,6 +8,8 @@ public class StatsScript : MonoBehaviour {
 	protected int m_playerHealth;
 	protected int m_shotsFired;
 
+	public bool m_debugScore = false;
+
 	MobBoss m_mobBoss;
 	Bastet m_bastet;
 
@@ -269,8 +271,8 @@ public class StatsScript : MonoBehaviour {
 		{
 			string winMessage = "You Win!\nYour Score:\n";
 			// TODO: Change this to access the player's actual score
-			int score = m_bastet.CalculateScore();
-			return winMessage + score.ToString();
+			string score = m_bastet.CalculateScoreString(m_debugScore);
+			return winMessage + score;
 		}
 	}
 }
