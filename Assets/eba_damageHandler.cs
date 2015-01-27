@@ -6,12 +6,14 @@ public class eba_damageHandler : vp_DamageHandler {
 	private StatsScript m_statsScript;
 	private MobBoss m_mobBoss;
 	private GenericMob m_thisMob;
+	private Bastet m_bastet;
 	protected vp_Timer.Handle m_DestroyTimer = new vp_Timer.Handle();
 
 	// Use this for initialization
 	void Start () {
 		m_statsScript = GameObject.Find("StatsBot").GetComponent<StatsScript>();
 		m_mobBoss = GameObject.Find("MobBoss").GetComponent<MobBoss>();
+		m_bastet = GameObject.Find("Bastet").GetComponent<Bastet>();
 		m_thisMob = gameObject.GetComponent<GenericMob>();
 
 		if (!m_thisMob)
@@ -29,6 +31,7 @@ public class eba_damageHandler : vp_DamageHandler {
 	public virtual void Die()
 	{
 		m_statsScript.AddKill();
+		m_bastet.AddScore(m_thisMob.scoreValue);
 
 		base.Die();
 

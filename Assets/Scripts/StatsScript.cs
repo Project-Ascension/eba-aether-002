@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StatsScript : MonoBehaviour {
 	
@@ -7,11 +9,13 @@ public class StatsScript : MonoBehaviour {
 	protected int m_deathCount;
 	protected int m_playerHealth;
 	protected int m_shotsFired;
+	protected int m_killsSinceLastDeath;
+	protected int m_currentMultiplier;
 
-	public bool m_debugScore = false;
+//	public bool m_debugScore = false;
 
-	MobBoss m_mobBoss;
-	Bastet m_bastet;
+	protected MobBoss m_mobBoss;
+	protected Bastet m_bastet;
 
 	public Font m_scoreFont = null;
 	public int m_scoreXOffset = 0;
@@ -123,10 +127,24 @@ public class StatsScript : MonoBehaviour {
 		}
 	}
 
+	public List<ScoreMultiplier> ScoreMultiplierList = new List<ScoreMultiplier>();
+
+	[Serializable]
+	public class ScoreMultiplier
+	{
+		public int QualifyingNumberOfKills;
+		public int MultiplyingFactor = 1;
+	}
+
 	// Use this for initialization
 	void Start () {
 		m_killCount = 0;
 		m_playerHealth = 100;
+		m_currentMultiplier = 1;
+
+		ScoreMultiplierList.Sort(delegate (ScoreMultiplier s1, ScoreMultiplier s2) { return s2.QualifyingNumberOfKills.CompareTo(s1.QualifyingNumberOfKills); });
+		ScoreMultiplierList.ForEach(delegate (ScoreMultiplier s1) { Debug.Log(s1.QualifyingNumberOfKills); });
+
 
 		m_mobBoss = GameObject.Find("MobBoss").GetComponent<MobBoss>();
 		if (!m_mobBoss)
@@ -138,17 +156,31 @@ public class StatsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		for (int i = 0; i < ScoreMultiplierList.Count; i++)
+		{
+			if (ScoreMultiplierList[i].QualifyingNumberOfKills <= m_killsSinceLastDeath)
+			{
+				m_currentMultiplier = ScoreMultiplierList[i].MultiplyingFactor;
+				break;
+			}
+		}
 	}
 
 	public void AddKill() {
 		m_killCount += 1;
+		m_killsSinceLastDeath += 1;
 		Debug.Log("Kill Count = " + m_killCount);
 	}
 
 	public void AddDeath()
 	{
+		// Add one to the death count
 		m_deathCount += 1;
+		// Reset m_killsSinceLastDeath
+		m_killsSinceLastDeath = 0;
+		// Reset multiplier bonus to default value (1);
+		m_currentMultiplier = 1;
+		// Remove one life from counter
 		m_bastet.LoseLife();
 		Debug.Log("Death Count = " + m_deathCount);
 	}
@@ -165,6 +197,11 @@ public class StatsScript : MonoBehaviour {
 	public int GetDeaths()
 	{
 		return m_deathCount;
+	}
+
+	public int GetCurrentMultiplier()
+	{
+		return m_currentMultiplier;
 	}
 
 	public float GetKDRatio()
@@ -222,11 +259,19 @@ public class StatsScript : MonoBehaviour {
 	{
 		get
 		{
-			string sString = "Lives Remaining: " + (m_bastet.GetLives() - 1) + "\n"
-				+ "Kills: " + m_killCount + "\n"
+			string sString = "";
+
+			if (m_bastet.m_GameType == Bastet.GameTypeEnum.LimitedLives)
+			{
+				sString += "Lives Remaining: " + (m_bastet.GetLives() - 1) + "\n";
+			}
+				
+			sString += "Kills: " + m_killCount + "\n"
 				+ "Deaths: " + m_deathCount + "\n"
 					+ "Shots Fired: " + shotsFired + "\n"
-					+ "K/D Ratio: " + GetKDRatio().ToString("F2");
+					+ "K/D Ratio: " + GetKDRatio().ToString("F2") + "\n"
+					+ "Score: " + m_bastet.Score.ToString() + "\n"
+					+ "Score Multiplier: x" + m_currentMultiplier;
 
 			return sString;
 		}
@@ -271,7 +316,7 @@ public class StatsScript : MonoBehaviour {
 		{
 			string winMessage = "You Win!\nYour Score:\n";
 			// TODO: Change this to access the player's actual score
-			string score = m_bastet.CalculateScoreString(m_debugScore);
+			string score = m_bastet.CalculateScore().ToString();
 			return winMessage + score;
 		}
 	}
