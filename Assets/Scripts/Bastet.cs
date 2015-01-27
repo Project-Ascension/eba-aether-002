@@ -121,7 +121,7 @@ public class Bastet : MonoBehaviour {
 			int kills = m_statsBot.GetKills();
 			int deaths = m_statsBot.GetDeaths();
 			int shots = m_statsBot.shotsFired;
-			int score = (kills * 10 + (deaths * 30) - shots) * 10;
+			int score = (kills * 10 - (deaths * 30) - shots) * 10;
 
 			if (score < 0)
 			{

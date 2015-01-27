@@ -220,11 +220,17 @@ public class StatsScript : MonoBehaviour {
 	{
 		get
 		{
-			string sString = "Lives Remaining: " + (m_bastet.GetLives() - 1) + "\n"
-				+ "Kills: " + m_killCount + "\n"
+			string sString = "";
+				
+			if (m_bastet.GameType == Bastet.GameTypeEnum.LimitedLives)
+			{
+				sString += "Lives Remaining: " + (m_bastet.GetLives() - 1) + "\n";
+			}
+				
+			sString += "Kills: " + m_killCount + "\n"
 				+ "Deaths: " + m_deathCount + "\n"
-					+ "Shots Fired: " + shotsFired + "\n"
-					+ "K/D Ratio: " + GetKDRatio().ToString("F2");
+				+ "Shots Fired: " + shotsFired + "\n"
+				+ "K/D Ratio: " + GetKDRatio().ToString("F2");
 
 			return sString;
 		}
