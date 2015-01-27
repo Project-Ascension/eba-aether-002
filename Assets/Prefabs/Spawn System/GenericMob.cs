@@ -6,6 +6,8 @@ public class GenericMob : MonoBehaviour {
 	GameObject m_mobBoss;
 	MobBoss m_boss;
 
+	public int scoreValue = 100;
+
 	void Awake () {
 		m_mobBoss = GameObject.Find("MobBoss");
 		if (!m_mobBoss){
